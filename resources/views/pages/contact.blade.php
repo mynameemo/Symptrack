@@ -1,16 +1,13 @@
 @extends('layouts.frontend')
 @section('content')
 
-
-
 <body>
-    
 
     <!-- Floating Background Elements -->
     <div class="floating floating-1"></div>
     <div class="floating floating-2"></div>
-    
-     <!-- Hero Section -->
+
+    <!-- Hero Section -->
     <section class="hero-below-nav">
         <div class="container">
             <div class="row align-items-center">
@@ -24,156 +21,157 @@
         </div>
     </section>
 
-    <!-- Contact Info -->
-    <section class="" style="background-color: #288054; margin-top: -48px;">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <h2 class="section-title">Contact Information</h2>
-                    <p style="color: black;">Feel free to reach out to us through any of these channels</p>
-                </div>
+    <!-- Contact Section — matches welcome page layout exactly, but form always visible and larger -->
+    <style>
+        .contact-pg-section { background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%); padding: 4rem 0 5rem; }
+        .contact-pg-inner   { display: flex; align-items: flex-start; gap: 2.5rem; flex-wrap: wrap; }
+        .contact-pg-left    { flex: 1 1 280px; display: flex; flex-direction: column; gap: 1rem; }
+        .contact-pg-right   { flex: 1 1 440px; }
+
+        /* Reuse con-card / email-card / call-card styling from welcome page — same classes */
+
+        /* Large always-visible form panel */
+        .cpg-form-panel {
+            background: rgba(255,255,255,.97);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0,0,0,.22);
+        }
+        .cpg-form-header {
+            background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+            color: #fff;
+            padding: 1.4rem 2rem;
+            font-size: 1.35rem;
+            margin: 0;
+            font-family: 'DM Serif Display', serif;
+        }
+        .cpg-form-body {
+            padding: 2rem 2.2rem 2.5rem;
+            background: var(--mint);
+        }
+        .cpg-label {
+            display: block; font-weight: 600; color: var(--ink);
+            margin-bottom: .4rem; font-size: .9rem;
+        }
+        .cpg-input {
+            width: 100%; padding: .85rem 1.1rem;
+            border-radius: 12px; border: 1.5px solid var(--border);
+            background: #fff; font-size: .95rem; color: var(--ink);
+            outline: none; transition: border-color .25s, box-shadow .25s;
+            margin-bottom: 1rem;
+        }
+        .cpg-input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(13,115,119,.12); }
+        .cpg-textarea { height: 150px; resize: vertical; }
+        .cpg-submit {
+            width: 100%; padding: 1rem; border: none;
+            background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+            color: #fff; border-radius: 12px; font-weight: 700;
+            font-size: 1rem; cursor: pointer; letter-spacing: .02em;
+            transition: opacity .2s, transform .2s;
+            box-shadow: 0 6px 20px rgba(13,115,119,.3);
+        }
+        .cpg-submit:hover { opacity: .9; transform: translateY(-2px); }
+    </style>
+
+    <section class="contact-pg-section">
+        <div class="container">
+
+            <div class="text-center mb-5">
+                <h2 class="section-title" style="color:#fff;">Get In Touch</h2>
+                <p style="color:rgba(255,255,255,.8);">Reach out through any of these channels or send us a message directly</p>
             </div>
-                    
-            <div class="row g-4">
-                <!-- class="col-md-4">
-                    <div class="contact-card text-center h-100" style="background-color: #0573aa;">
-                        <div class="contact-icon location">
+
+            <div class="contact-pg-inner">
+
+                <!-- LEFT: info cards -->
+                <div class="contact-pg-left">
+
+                    <div class="con-card">
+                        <div class="con-icon location">
                             <i class="bi bi-geo-alt"></i>
                         </div>
-                        <h4 style="color: white;">Our Location</h4>
-                        <p style="color: white;">Westlands<br>Nairobi</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary mt-2" style="color: black; border-color: black;">Get Directions</a>
+                        <div class="con-text">
+                            <h4>Our Location</h4>
+                            <p>Westlands<br>Nairobi</p>
+                            <a href="#">Get Directions</a>
+                        </div>
                     </div>
-                </div-->
-                
 
-                <div class="con-card">
-                    <div class="con-icon location">
-                        <i class="bi bi-geo-alt"></i>
-                    </div>
-                    <div class="con-text">
-                        <h4>Our Location</h4>
-                        <p>Westlands<br>Nairobi</p>
-                        <a href="#">Get Directions</a>
-                    </div>
-                </div>
-
-
-                <div class="email-card">
-                    <div style="background-color: gold;" class="email-icon location">
-                        <i  class="bi bi-envelope"></i>
-                    </div>
-                    <div class="email-text">
-                        <h4>Email Us</h4>
-                        <p>info@symptrack.com<br>support@symptrack.com</p>
-                        <a href="#">Send Email</a>
-                    </div>
-                </div>
-
-                <div class="call-card">
-                    <div style="background-color: gold;" class="call-icon location">
-                        <i  class="bi bi-telephone"></i>
-                    </div>
-                    <div class="call-text">
-                        <h4>Call Us</h4>
-                        <p>+254 725 039 848<br>Monday - Friday: 9am - 5pm</p>
-                        <a href="#">Call Now</a>
-                    </div>
-                </div>
-
-
-                <!--div class="col-md-4">
-                    <div class="contact-card text-center h-100" style="background-color: #72036b;">
-                        <div class="contact-icon email">
+                    <div class="email-card">
+                        <div style="background: linear-gradient(135deg, var(--gold), #a87830);" class="email-icon location">
                             <i class="bi bi-envelope"></i>
                         </div>
-                        <h4 style="color: white;">Email Us</h4>
-                        <p style="color: white;">info@symptrack.com<br>support@symptrack.com</p>
-                        <a href="mailto:hello@symptrack.com" class="btn btn-sm btn-outline-primary mt-2" style="color: black; border-color: black;">Send Email</a>
+                        <div class="email-text">
+                            <h4>Email Us</h4>
+                            <p>info@symptrack.com<br>support@symptrack.com</p>
+                            <a href="#">Send Email</a>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="contact-card text-center h-100" style="background-color: #05aa58;">
-                        <div class="contact-icon phone" style="background: linear-gradient(135deg, #9260f0, #6311aa);">
+
+                    <div class="call-card">
+                        <div style="background: linear-gradient(135deg, var(--ink), #2d3650);" class="call-icon location">
                             <i class="bi bi-telephone"></i>
                         </div>
-                        <h4 style="color: white;">Call Us</h4>
-                        <p style="color: white;">+254 725 039 848<br>Mon-Fri, 9am-5pm PST</p>
-                        <a href="tel:+14155550123" class="btn btn-sm btn-outline-primary mt-2" style="color: black; border-color: black;">Call Now</a>
+                        <div class="call-text">
+                            <h4>Call Us</h4>
+                            <p>+254 725 039 848<br>Monday – Friday: 9am – 5pm</p>
+                            <a href="#">Call Now</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT: large form always visible -->
+                <div class="contact-pg-right">
+                    <div class="cpg-form-panel">
+                        <h3 class="cpg-form-header">
+                            <i class="bi bi-send me-2"></i>Send Us a Message
+                        </h3>
+                        <div class="cpg-form-body">
+                            <form>
+                                <div class="row g-0">
+                                    <div class="col-md-6 pe-md-2">
+                                        <label class="cpg-label">Your Name</label>
+                                        <input type="text" class="cpg-input" placeholder="John Doe">
+                                    </div>
+                                    <div class="col-md-6 ps-md-2">
+                                        <label class="cpg-label">Email Address</label>
+                                        <input type="email" class="cpg-input" placeholder="john@example.com">
+                                    </div>
+                                </div>
+                                <label class="cpg-label">Phone Number</label>
+                                <input type="tel" class="cpg-input" placeholder="+254 700 000 000">
+                                <label class="cpg-label">Subject</label>
+                                <input type="text" class="cpg-input" placeholder="How can we help?">
+                                <label class="cpg-label">Your Message</label>
+                                <textarea class="cpg-input cpg-textarea" placeholder="Tell us more..."></textarea>
+                                <button type="submit" class="cpg-submit">
+                                    <i class="bi bi-send me-2"></i>Send Message
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div-->
-    
-        <!-- Contact Form-->
-           <div class="contact-banner-wrapper">         
-                <button class="contact-trigger">
-                    <i class="bi bi-send"></i>
-                </button>
 
-                <div class="contact-banner">
-                    <h3 style="background-color: #4e73ff;">Contact Us</h3>
-
-                    <form class="con-form">
-                        <input type="text" placeholder="Your Name">
-                        <input type="email" placeholder="Email Address">
-                        <textarea placeholder="Your Message"></textarea>
-                        <button type="submit">Send Message</button>
-                    </form>
-                </div>
-            </div>
-    </section>
-
-    <!-- Map Section -->
-    <!--section class="py-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.158072141783!2d-122.40158368468245!3d37.78688297975799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085807f8f4b9f1d%3A0xe8d8f6d6b1b6b4b5!2s123%20Health%20St%2C%20San%20Francisco%2C%20CA%2094107%2C%20USA!5e0!3m2!1sen!2suk!4v1648123456789" 
-                                allowfullscreen="" 
-                                loading="lazy">
-                        </iframe>
-                    </div>
-                </div>
             </div>
         </div>
-    </section-->
+    </section>
 
     <!-- CTA Section -->
-    <section class="py-5" style="background: linear-gradient(135deg, rgba(116, 149, 250, 0.9), rgba(240, 248, 255, 0.9)); margin-bottom: -78px; ">
+    <section class="py-5" style="background: linear-gradient(135deg, var(--teal-dark) 0%, var(--ink) 100%); margin-bottom: -78px;">
         <div class="container text-center py-4">
-            <h2 class="mb-4" style="color: black;">Still Have Questions?</h2>
-            <p class="lead mb-4">Check out our <a style="color: #037239;" href="FAQs.html" class="text-primary">Frequently Asked Questions</a> or contact our support team for assistance.</p>
-            <a href="FAQs.html" class="btn btn-outline-primary btn-lg">Visit FAQ Page</a>
+            <h2 class="mb-4" style="color:#fff;">Still Have Questions?</h2>
+            <p class="lead mb-4" style="color:rgba(255,255,255,.8);">Check out our <a style="color: var(--gold);" href="/FAQs">Frequently Asked Questions</a> or contact our support team for assistance.</p>
+            <a href="/FAQs" class="btn btn-lg" style="background:var(--gold);color:#fff;border:none;border-radius:50px;padding:.75rem 2rem;font-weight:700;">Visit FAQ Page</a>
         </div>
     </section>
 
-    
-
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Add smooth scrolling to all links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Add active class to current nav item
         const currentLocation = location.href;
-        const menuItems = document.querySelectorAll('.nav-link');
-        const menuLength = menuItems.length;
-        
-        for (let i = 0; i < menuLength; i++) {
-            if (menuItems[i].href === currentLocation) {
-                menuItems[i].classList.add('active');
-            }
-        }
+        document.querySelectorAll('.nav-link').forEach(item => {
+            if (item.href === currentLocation) item.classList.add('active');
+        });
     </script>
 </body>
 </html>

@@ -44,7 +44,7 @@
 
     </section>
 
-        <!--About Us-->
+        
 <!-- About Us -->
  
 <section class="py-5 bg-white">
@@ -95,8 +95,302 @@
         </div>
     </section>
 
-     <!-- Our Values -->
-    <section class="py-5" style="background-color: #0c406767">
+
+
+<section class="py-5" style="background-color: #0c406767">
+
+ <style>
+    .feature-card-1 {
+    position: relative;
+    height: 100%;
+    padding: 2.4rem 2rem;
+    border-radius: 22px;
+
+    /* Glass look */
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.85),
+        rgba(255, 255, 255, 0.65)
+    );
+    backdrop-filter: blur(14px);
+
+    /* Depth */
+    box-shadow:
+        0 25px 45px rgba(0, 0, 0, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    text-align: center;
+    overflow: hidden;
+
+    transition: 
+        transform 0.6s cubic-bezier(.175,.885,.32,1.275),
+        box-shadow 0.6s ease;
+    }
+
+    /*  GLOW RING */
+    .feature-card-1::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        background: linear-gradient(
+            135deg,
+            #4e73df,
+            #1cc88a,
+            #9d2fec
+        );
+        opacity: 0.35;
+        filter: blur(14px);
+        z-index: -1;
+    }
+
+    /*  LIGHT SWEEP */
+    .feature-card-1::after {
+        content: "";
+        position: absolute;
+        top: -60%;
+        left: -60%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+            circle,
+            rgba(255,255,255,0.35),
+            transparent 60%
+        );
+        transform: rotate(25deg);
+        opacity: 0;
+        transition: opacity 0.6s ease;
+    }
+
+    /* HOVER INTERACTION */
+    .feature-card-1:hover {
+        transform: translateY(-52px) scale(1.04);
+        box-shadow:
+            0 40px 80px rgba(0,0,0,0.18),
+            0 0 60px rgba(78,115,223,0.35);
+    }
+
+    .feature-card-1:hover::after {
+        opacity: 1;
+    }
+
+    /*  CONTENT FEEL */
+    .feature-card-1 h2 {
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+        color: #000000;
+    }
+
+    .feature-card-1 p {
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+
+    .feature-card-1:nth-child(1) { transform: rotate(-4deg); }
+    .feature-card-1:nth-child(2) { transform: rotate(1deg); }
+    .feature-card-1:nth-child(3) { transform: rotate(-1deg); }
+
+    .feature-card-1:hover {
+        transform: translateY(-52px) scale(1.11) rotate(3deg);
+    }
+
+    .feature-card-2 {
+    position: relative;
+    height: 100%;
+    padding: 2.4rem 2rem;
+    border-radius: 22px;
+
+    /* Glass look */
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.85),
+        rgba(255, 255, 255, 0.65)
+    );
+    backdrop-filter: blur(14px);
+
+    /* Depth */
+    box-shadow:
+        0 25px 45px rgba(0, 0, 0, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    text-align: center;
+    overflow: hidden;
+
+    transition: 
+        transform 0.6s cubic-bezier(.175,.885,.32,1.275),
+        box-shadow 0.6s ease;
+    }
+
+    /*  GLOW RING */
+    .feature-card-2::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        background: linear-gradient(
+            135deg,
+            #1cc88a,
+            #4e73df,
+            #9d2fec
+        );
+        opacity: 0.35;
+        filter: blur(14px);
+        z-index: -1;
+    }
+
+    /* LIGHT SWEEP */
+    .feature-card-2::after {
+        content: "";
+        position: absolute;
+        top: -60%;
+        left: -60%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+            circle,
+            rgba(255,255,255,0.35),
+            transparent 60%
+        );
+        transform: rotate(25deg);
+        opacity: 0;
+        transition: opacity 0.6s ease;
+    }
+
+    /*  HOVER INTERACTION */
+    .feature-card-2:hover {
+        transform: translateY(-52px) scale(1.04);
+        box-shadow:
+            0 40px 80px rgba(0,0,0,0.18),
+            0 0 60px rgba(78,115,223,0.35);
+    }
+
+    .feature-card-2:hover::after {
+        opacity: 1;
+    }
+
+    /*  CONTENT FEEL */
+    .feature-card-2 h4 {
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+    }
+
+    .feature-card-2 p {
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+
+    .feature-card-2:nth-child(1) { transform: rotate(-2deg); }
+    .feature-card-2:nth-child(2) { transform: rotate(1deg); }
+    .feature-card-2:nth-child(3) { transform: rotate(-1deg); }
+
+    .feature-card-2:hover {
+        transform: translateY(-52px) scale(1.11) rotate(3deg);
+    }
+
+
+    .feature-card-3 {
+        position: relative;
+        height: 100%;
+        padding: 2.4rem 2rem;
+        border-radius: 22px;
+        color: black;
+
+        /* Glass look */
+        background: linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.85),
+            rgba(255, 255, 255, 0.65)
+        );
+        backdrop-filter: blur(14px);
+
+        /* Depth */
+        box-shadow:
+            0 25px 45px rgba(0, 0, 0, 0.08),
+            inset 0 1px 1px rgba(255, 255, 255, 0.6);
+
+        border: 1px solid rgba(255, 255, 255, 0.35);
+
+        text-align: center;
+        overflow: hidden;
+
+        transition: 
+            transform 0.6s cubic-bezier(.175,.885,.32,1.275),
+            box-shadow 0.6s ease;
+    }
+
+    /*  GLOW RING */
+    .feature-card-3::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(
+        135deg,
+        #9d2fec,
+        #4e73df,
+        #1cc88a
+        
+    );
+    opacity: 0.35;
+    filter: blur(14px);
+    z-index: -1;
+    }
+
+    /* LIGHT SWEEP */
+    .feature-card-3::after {
+        content: "";
+        position: absolute;
+        top: -60%;
+        left: -60%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+            circle,
+            rgba(255,255,255,0.35),
+            transparent 60%
+        );
+        transform: rotate(25deg);
+        opacity: 0;
+        transition: opacity 0.6s ease;
+    }
+
+    /*  HOVER INTERACTION */
+    .feature-card-3:hover {
+        transform: translateY(-52px) scale(1.04);
+        box-shadow:
+            0 40px 80px rgba(0,0,0,0.18),
+            0 0 60px rgba(78,115,223,0.35);
+    }
+
+    .feature-card-3:hover::after {
+        opacity: 1;
+    }
+
+    /* CONTENT FEEL */
+    .feature-card-3 h4 {
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+    }
+
+    .feature-card-3 p {
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+
+    .feature-card-3:nth-child(1) { transform: rotate(4deg); }
+    .feature-card-3:nth-child(2) { transform: rotate(1deg); }
+    .feature-card-3:nth-child(3) { transform: rotate(-1deg); }
+
+    .feature-card-3:hover {
+        transform: translateY(-52px) scale(1.11) rotate(3deg);
+    }
+
+    
+    </style>
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title">Our Values</h2>
@@ -134,11 +428,158 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </div>   
+</section>
 
     <!-- What to expect -->
     <section id="features" class="py-5 my-5" style="background-color: #c3f9dd;">
+        <style>
+    .feature-card {
+    /* Base look */
+    background: linear-gradient(
+        135deg,
+        rgba(78, 115, 223, 0.95),
+        rgba(28, 200, 138, 0.95),
+        rgba(148, 62, 246, 0.95)
+    );
+    backdrop-filter: blur(12px);
+    
+    border-radius: 16px 16px 0 0;
+    padding: 1.5rem;
+    text-align: center;
+    color: #ffffff;
+
+    /* Collapsed banner state */
+    height: 90px; /* increased so heading is visible */
+    overflow: hidden;
+    cursor: pointer;
+
+    position: relative;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    transition:
+        height 0.75s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.6s ease,
+        transform 0.6s ease;
+}
+
+/* Hide everything EXCEPT the heading */
+.feature-card > *:not(h4) {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+}
+
+/* Keep heading always visible */
+.feature-card h4 {
+    opacity: 1;
+    transform: translateY(10px);
+    margin: 0;
+    margin-top: -100px;
+}
+
+/* Top stitched ribbon */
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    right: 12px;
+    height: 5px;
+    background: linear-gradient(90deg, #ffffffaa, #ffffff55);
+    border-radius: 3px;
+}
+
+/* Wavy banner bottom */
+.feature-card::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: inherit;
+
+    clip-path: polygon(
+        0% 40%,
+        8% 55%,
+        16% 35%,
+        24% 55%,
+        32% 38%,
+        40% 60%,
+        48% 40%,
+        56% 60%,
+        64% 38%,
+        72% 55%,
+        80% 35%,
+        88% 55%,
+        100% 40%,
+        100% 100%,
+        0 100%
+    );
+
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+    transition: transform 0.7s ease;
+}
+
+/* Hover: banner drops & reveals content */
+.feature-card:hover {
+    height: 300px;
+    transform: translateY(-6px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    animation: clothSway 2.5s ease-in-out infinite alternate;
+    h4{
+     margin-top: 20px;
+    } 
+   
+}
+
+/* Reveal all content on hover */
+.feature-card:hover > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Bottom cloth motion */
+.feature-card:hover::after {
+    animation: clothWave 2s ease-in-out infinite alternate;
+}
+
+/* Cloth sway animation */
+@keyframes clothSway {
+    0% { transform: rotateZ(-1.5deg); }
+    50% { transform: rotateZ(1.5deg); }
+    100% { transform: rotateZ(-1.5deg); }
+}
+
+/* Bottom wave animation */
+@keyframes clothWave {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+    100% { transform: translateY(0); }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: white;
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.75rem;
+    color: white;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.text-center {
+    color: white;
+}
+        </style>
         <div class="container">
             <div class="text-center mb-5" >
                 <h2 class="section-title">What to expect from SympTrack</h2>
@@ -179,27 +620,19 @@
         </div>
     </section>
 
-     <!-- Contact Info -->
-<section class="py-5" style="background-color: #037239;">
+
+<section class="py-5 welcome-contact-section" style="background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title">Contact Information</h2>
-            <p style="color: black;">Feel free to reach out to us through any of these channels</p>
+            <h2 class="section-title" style="color:#fff;">Contact Information</h2>
+            <p style="color:rgba(255,255,255,.8);">Feel free to reach out to us through any of these channels</p>
         </div>
-    </div>
-                    
-            <div class="row g-4">
-                <!-- class="col-md-4">
-                    <div class="contact-card text-center h-100" style="background-color: #0573aa;">
-                        <div class="contact-icon location">
-                            <i class="bi bi-geo-alt"></i>
-                        </div>
-                        <h4 style="color: white;">Our Location</h4>
-                        <p style="color: white;">Westlands<br>Nairobi</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary mt-2" style="color: black; border-color: black;">Get Directions</a>
-                    </div>
-                </div-->
-                
+
+        <!-- Hover zone wraps both left cards and right form -->
+        <div class="welcome-contact-hover-zone welcome-contact-inner">
+
+            <!-- Left: contact info cards + hover button -->
+            <div class="welcome-contact-left">
 
                 <div class="con-card">
                     <div class="con-icon location">
@@ -212,10 +645,9 @@
                     </div>
                 </div>
 
-
                 <div class="email-card">
-                    <div style="background-color: gold;" class="email-icon location">
-                        <i  class="bi bi-envelope"></i>
+                    <div style="background: linear-gradient(135deg, var(--gold), #a87830);" class="email-icon location">
+                        <i class="bi bi-envelope"></i>
                     </div>
                     <div class="email-text">
                         <h4>Email Us</h4>
@@ -225,8 +657,8 @@
                 </div>
 
                 <div class="call-card">
-                    <div style="background-color: gold;" class="call-icon location">
-                        <i  class="bi bi-telephone"></i>
+                    <div style="background: linear-gradient(135deg, var(--ink), #2d3650);" class="call-icon location">
+                        <i class="bi bi-telephone"></i>
                     </div>
                     <div class="call-text">
                         <h4>Call Us</h4>
@@ -235,99 +667,30 @@
                     </div>
                 </div>
 
-
-                <!--div class="col-md-4">
-                    <div class="contact-card text-center h-100" style="background-color: #72036b;">
-                        <div class="contact-icon email">
-                            <i class="bi bi-envelope"></i>
-                        </div>
-                        <h4 style="color: white;">Email Us</h4>
-                        <p style="color: white;">info@symptrack.com<br>support@symptrack.com</p>
-                        <a href="mailto:hello@symptrack.com" class="btn btn-sm btn-outline-primary mt-2" style="color: black; border-color: black;">Send Email</a>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="contact-card text-center h-100" style="background-color: #05aa58;">
-                        <div class="contact-icon phone" style="background: linear-gradient(135deg, #9260f0, #6311aa);">
-                            <i class="bi bi-telephone"></i>
-                        </div>
-                        <h4 style="color: white;">Call Us</h4>
-                        <p style="color: white;">+254 725 039 848<br>Mon-Fri, 9am-5pm PST</p>
-                        <a href="tel:+14155550123" class="btn btn-sm btn-outline-primary mt-2" style="color: black; border-color: black;">Call Now</a>
-                    </div>
-                </div>
-            </div>
-        </div-->
-    
-        <!-- Contact Form-->
-           <div class="contact-banner-wrapper">
-                
-                <button class="contact-trigger">
-                    <i class="bi bi-send"></i>
-                </button>
-
-                <div class="contact-banner">
-                    <h3 style="background-color: #4e73ff;">Contact Us</h3>
-
-                    <form class="con-form">
-                        <input type="text" placeholder="Your Name">
-                        <input type="email" placeholder="Email Address">
-                        <textarea placeholder="Your Message"></textarea>
-                        <button type="submit">Send Message</button>
-                    </form>
+                <!-- Hover trigger button -->
+                <div class="welcome-contact-btn-wrap mt-2">
+                    <button class="welcome-contact-btn">
+                        <i class="bi bi-send"></i> Contact Us
+                    </button>
+                    <small style="display:block; color:rgba(255,255,255,.7); margin-top:.4rem; font-size:.78rem;">Hover to send us a message</small>
                 </div>
             </div>
 
-            <!-- Contact Form -->
-            <!--section class="py-5">
-                <div class="container">
-                    <div class="row justify-content-center" >
-                        <div class="col-lg-8" >
-                            <div class="card border-0 shadow-sm" style="background: linear-gradient( #05aa58, #0573aa, #72036b)">
-                                <div class="card-body p-4 p-md-5"  >
-                                    <div class="text-center mb-5" >
-                                        <h2 class="section-title">Send Us a Message</h2>
-                                        <p class="text-muted">Fill out the form below and we'll get back to you as soon as possible</p>
-                                    </div>
-                                    
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-md-6 mb-3">
-                                                <label for="name" class="form-label">Your Name</label>
-                                                <input type="text" class="form-control" id="name" required>
-                                            </div>
-                                            <div class="col-md-6 mb-3">
-                                                <label for="email" class="form-label">Email Address</label>
-                                                <input type="email" class="form-control" id="email" required>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="mb-3">
-                                            <label for="subject" class="form-label">Subject</label>
-                                            <input type="text" class="form-control" id="subject" required>
-                                        </div>
-                                        
-                                        <div class="mb-4">
-                                            <label for="message" class="form-label">Your Message</label>
-                                            <textarea class="form-control" id="message" rows="5" required></textarea>
-                                        </div>
-                                        
-                                        <div class="d-grid" style="border-color: black;">
-                                            <button type="submit" class="btn btn-primary btn-lg">
-                                                <i class="bi bi-send me-2"></i> Send Message
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section-->
+            <!-- Right: form panel (revealed on hover) -->
+            <div class="welcome-contact-right">
+                <h3>Send Us a Message</h3>
+                <form class="con-form">
+                    <input type="text" placeholder="Your Name">
+                    <input type="email" placeholder="Email Address">
+                    <textarea placeholder="Your Message"></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+
+        </div><!-- /.welcome-contact-hover-zone -->
 
         <!-- Map Section -->
-        <section class="py-5">
+        <div class="py-5">
             <div class="container">
                 <h3 style="color: white; margin-bottom: 60px; text-align: center;">Find our location using this map guide</h3>
                 <div class="row justify-content-center">
@@ -341,60 +704,60 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </section>
+        </div>
+
+    </div><!-- /.container -->
+</section>
 
 
     <!-- How It Works -->
-    <section class="how-it-works py-5" style="background: linear-gradient(135deg, rgba(233, 238, 255, 0.9), rgba(61, 199, 121, 0.9));">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">How It Works</h2>
-                <p class="lead">Get started in just a few simple steps</p>
+   <section class="hiw2-section">
+    <div class="container">
+        <div class="hiw2-head">
+            <h2 class="hiw2-title">How it works</h2>
+            <p class="hiw2-sub">Three steps between you and understanding your health patterns.</p>
+        </div>
+
+        <div class="hiw2-track">
+            <svg class="hiw2-pulse" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
+                <path class="hiw2-pulse-path" d="M0,100 L220,100 L250,40 L280,160 L310,70 L340,100 L620,100 L650,40 L680,160 L710,70 L740,100 L1000,100" />
+            </svg>
+
+            <div class="hiw2-stop hiw2-stop-up" style="left:14%">
+                <div class="hiw2-dot"></div>
+                <div class="hiw2-content">
+                    <i class="bi bi-person-plus-fill hiw2-icon"></i>
+                    <h4>Create your account</h4>
+                    <p>Sign up in under a minute with just your email and a password.</p>
+                </div>
             </div>
 
-            <div class="row justify-content-center align-items-center text-center g-5">
-
-                <div class="col-md-3">
-                    <div class="feature-step-card" style="background-color: #05aa58;">
-                        <h4>Create Your Account</h4>
-                        <p>Sign up in less than a minute.</p>
-                    </div>
+            <div class="hiw2-stop hiw2-stop-down" style="left:50%">
+                <div class="hiw2-dot hiw2-dot-gold"></div>
+                <div class="hiw2-content">
+                    <i class="bi bi-clipboard2-pulse-fill hiw2-icon hiw2-icon-gold"></i>
+                    <h4>Log your symptoms</h4>
+                    <p>Record what you're feeling as it happens — severity, triggers, notes.</p>
                 </div>
+            </div>
 
-                <div class="col-md-1" >
-                    <p class="step-arrow">&#8702;</p>
+            <div class="hiw2-stop hiw2-stop-up" style="left:86%">
+                <div class="hiw2-dot"></div>
+                <div class="hiw2-content">
+                    <i class="bi bi-bar-chart-line-fill hiw2-icon"></i>
+                    <h4>See the patterns</h4>
+                    <p>Watch trends surface across your history so you can act on them.</p>
                 </div>
-
-                <div class="col-md-3">
-                    <div class="feature-step-card" style="background-color: #0573aa;">
-                        <h4>Log Your Symptoms</h4>
-                        <p>Add symptoms easily as they occur.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-1">
-                    <p class="step-arrow">&#8702;</p>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="feature-step-card" style="background-color: #72036b;">
-                        <h4>Gain Insights</h4>
-                        <p>Spot patterns & trends.</p>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Bootstrap JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    document.querySelector('.contact-trigger').addEventListener('click', () => {
-    document.querySelector('.contact-banner').classList.toggle('active');
-});
+    // Contact form is revealed on hover via CSS — no JS click handler needed
 
 // INTERACTIVE AUTOMATIC SLIDING
 function initCarousel() {

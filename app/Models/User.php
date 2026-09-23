@@ -7,6 +7,7 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
@@ -56,16 +57,30 @@ class User extends Authenticatable
         return $this->is_admin === 1;
     }
 
+    public function canAccessPanel(\Filament\Panel $panel): bool
+    {
+        return $this->is_admin;
+    }
+
     public function symptoms(){
         return $this->belongsToMany(Symptom::class, 'user_symptoms')
         ->withPivot(['logged_at', 'severity'])
         ->withTimestamps();
     }
 
-    public function triggers(){
-        return $this->belongsToMany(Trigger::class, 'user_triggers')
-        ->withPivot(['logged_at'])
-        ->withTimestamps();
-    }
+    public function userTriggers()
+{
+    return $this->hasMany(UserTrigger::class);
+}
+
+public function medicalConditions(): BelongsToMany
+{
+    return $this->belongsToMany(MedicalCondition::class, 'user_medical_conditions');
+}
+
+public function mentalHealthConditions(): BelongsToMany
+{
+    return $this->belongsToMany(MentalHealthCondition::class, 'user_mental_health_conditions');
+}
 }
 

@@ -16,6 +16,9 @@ return new class extends Migration
             $table->unsignedBigInteger('symptom_id');
             $table->unsignedBigInteger('user_id');
             $table->integer('severity')->default(5);
+            $table->string('duration_value')->nullable();
+            $table->string('duration_unit')->nullable();
+            $table->text('notes')->nullable();
             $table->date('logged_at');
             $table->unique(['user_id', 'symptom_id', 'logged_at']);
             $table->timestamps();

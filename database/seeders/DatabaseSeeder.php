@@ -21,6 +21,9 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'phonenumber' => '0712345678',
+            'gender' => 'female',
+            'address' => 'Nairobi',
         ]);
 
         // Calls the Symptom Seeder
@@ -32,6 +35,9 @@ class DatabaseSeeder extends Seeder
         $this->call(
             TriggerSeeder::class,
         );
-        }
-
+        
+        $this->call(
+            MedicineSeeder::class,
+        );
+}
 }

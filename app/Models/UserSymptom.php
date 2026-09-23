@@ -14,6 +14,9 @@ class UserSymptom extends Model
         'user_id',
         'symptom_id',
         'severity',
+        'duration_value',
+        'duration_unit',
+        'notes',
         'logged_at',
     ];
 
@@ -29,5 +32,14 @@ class UserSymptom extends Model
     public function symptom()
     {
         return $this->belongsTo(Symptom::class);
+    }
+
+    public function medicines()
+    {
+        return $this->belongsToMany(
+            Medicine::class,
+            'user_symptom_medicines'
+        )
+        ->withTimestamps();
     }
 }

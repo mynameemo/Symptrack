@@ -10,9 +10,8 @@ class Trigger extends Model
     use CrudTrait;
     //
 
-    public function users(){
-        return $this->belongsToMany(User::class, 'user_triggers')
-        ->withPivot(['logged_at'])
-        ->withTimestamps();
-    }
+    public function userTriggers()
+{
+    return $this->hasMany(UserTrigger::class);
+}
 }

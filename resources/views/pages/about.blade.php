@@ -44,41 +44,41 @@
     </section>
 
    <!-- Our Values -->
-    <section class="py-5" style="background-color: #15623aff">
+    <section class="py-5" style="background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-title">Our Values</h2>
-                <p class="lead">Guiding principles that shape everything we do</p>
+                <h2 class="section-title" style="color:#fff;">Our Values</h2>
+                <p class="lead" style="color:rgba(255,255,255,.8);">Guiding principles that shape everything we do</p>
             </div>
             
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="feature-card-1">
-                        <div class="feature-icon" style= "background: linear-gradient(135deg, #4e73df, #224abe)";>
+                        <div class="feature-icon" style="background: linear-gradient(135deg, var(--ink), #2d3650);">
                             <i class="bi bi-people"></i>
                         </div>
-                        <h4 style="color: black">User-Centered</h4>
-                        <p style="color: black;">We put our users first in everything we do, creating intuitive experiences that fit seamlessly into daily life.</p>
+                        <h4>User-Centered</h4>
+                        <p>We put our users first in everything we do, creating intuitive experiences that fit seamlessly into daily life.</p>
                     </div>
                 </div>
                 
                 <div class="col-md-4">
-                    <div class="feature-card-2" style="background-color: #035c72;">
-                        <div class="feature-icon" style="background: linear-gradient(135deg, #a01cc8ff, #600c6fff);">
+                    <div class="feature-card-2">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, var(--gold), #a87830);">
                             <i class="bi bi-shield-lock"></i>
                         </div>
-                        <h4 style="color: black;">Privacy First</h4>
-                        <p style="color: black;">Your health data is yours alone. We implement robust security measures to keep your information safe and private.</p>
+                        <h4>Privacy First</h4>
+                        <p>Your health data is yours alone. We implement robust security measures to keep your information safe and private.</p>
                     </div>
                 </div>
                 
                 <div class="col-md-4">
-                    <div class="feature-card-3" style="background-color: #700491;">
-                        <div class="feature-icon" style="background: linear-gradient(135deg, #f6c23e, #dda20a);">
+                    <div class="feature-card-3">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, var(--teal-light), var(--teal));">
                             <i class="bi bi-lightbulb"></i>
                         </div>
-                        <h4 style="color: black;">Innovation</h4>
-                        <p style="color: black;">We're constantly exploring new ways to improve and enhance your health tracking experience.</p>
+                        <h4>Innovation</h4>
+                        <p>We're constantly exploring new ways to improve and enhance your health tracking experience.</p>
                     </div>
                 </div>
             </div>
@@ -118,78 +118,233 @@
     </section-->
 
     <!-- Our Team -->
-    <section class="team">
+    <section class="team-section py-5">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title">Meet Our Team</h2>
-                <p class="lead">The passionate people behind SympTrack</p>
+                <p class="lead" style="color:var(--muted);">The passionate people behind SympTrack</p>
             </div>
-            
-            <div class="row g-4">
 
-                 <div class="col-md-4">
-                    <div class="feature-card text-center">
-                         <img src="https://randomuser.me/api/portraits/women/43.jpg" class="img-fluid team-img" alt="Team Member">
-                        <h4 style="color: #224abe;">Sarah Johnson</h4>
-                        <p style="color: #224abe;">CEO & Founder</p>
-                        <div class="team-social">
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
-                                <a href="#"><i class="bi bi-twitter"></i></a>
-                                <a href="#"><i class="bi bi-envelope"></i></a>
+            <style>
+                .team-section { background: var(--bg); }
+
+                /* Team card scene */
+                .team-card-scene {
+                    perspective: 1000px;
+                    height: 380px;
+                }
+                .team-card-flip {
+                    width: 100%; height: 100%;
+                    position: relative;
+                    transform-style: preserve-3d;
+                    transition: transform .65s cubic-bezier(.4,0,.2,1);
+                    cursor: pointer;
+                }
+                .team-card-scene:hover .team-card-flip {
+                    transform: rotateY(180deg);
+                }
+                .team-card-front,
+                .team-card-back {
+                    position: absolute; inset: 0;
+                    backface-visibility: hidden;
+                    border-radius: 22px;
+                    overflow: hidden;
+                    box-shadow: 0 8px 32px rgba(13,115,119,.13);
+                }
+
+                /* FRONT */
+                .team-card-front {
+                    background: #fff;
+                    display: flex; flex-direction: column; align-items: center;
+                }
+                .team-card-front .team-img-wrap {
+                    width: 100%; height: 200px; overflow: hidden; flex-shrink: 0;
+                    position: relative;
+                }
+                .team-card-front .team-img-wrap img {
+                    width: 100%; height: 100%; object-fit: cover;
+                    transition: transform .5s ease;
+                }
+                .team-card-scene:hover .team-card-front .team-img-wrap img {
+                    transform: scale(1.05);
+                }
+                .team-card-front .team-img-wrap::after {
+                    content: '';
+                    position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
+                    background: linear-gradient(to top, #fff, transparent);
+                }
+                .team-card-front .tc-body {
+                    padding: 1.4rem 1.5rem 1rem;
+                    text-align: center; flex: 1;
+                }
+                .team-card-front .tc-name {
+                    font-family: 'DM Serif Display', serif;
+                    font-size: 1.25rem; color: var(--ink); margin-bottom: .25rem;
+                }
+                .team-card-front .tc-role {
+                    font-size: .82rem; font-weight: 700; letter-spacing: .08em;
+                    text-transform: uppercase;
+                    padding: .3rem .9rem; border-radius: 50px; display: inline-block;
+                    margin-bottom: .9rem;
+                }
+                .tc-role-teal  { background: var(--mint); color: var(--teal-dark); }
+                .tc-role-gold  { background: var(--gold-light); color: #8a6020; }
+                .tc-role-ink   { background: #eef0f5; color: var(--ink); }
+                .team-card-front .tc-hint {
+                    font-size: .78rem; color: var(--muted);
+                    display: flex; align-items: center; gap: .4rem; justify-content: center;
+                }
+                .team-card-front .tc-hint i { font-size: .9rem; }
+
+                /* accent stripe at top of each card */
+                .team-card-front::before {
+                    content: ''; position: absolute;
+                    top: 0; left: 0; right: 0; height: 4px;
+                    z-index: 2;
+                }
+                .accent-teal .team-card-front::before { background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
+                .accent-gold .team-card-front::before { background: linear-gradient(90deg, var(--gold), #e8c060); }
+                .accent-ink  .team-card-front::before { background: linear-gradient(90deg, var(--ink), #3a4266); }
+
+                /* BACK */
+                .team-card-back {
+                    transform: rotateY(180deg);
+                    display: flex; flex-direction: column; justify-content: center;
+                    align-items: center; padding: 2rem;
+                    text-align: center; color: #fff;
+                }
+                .accent-teal .team-card-back { background: linear-gradient(145deg, var(--teal-dark), var(--teal)); }
+                .accent-gold .team-card-back { background: linear-gradient(145deg, #7a5018, var(--gold)); }
+                .accent-ink  .team-card-back { background: linear-gradient(145deg, #0e1220, var(--ink)); }
+
+                .team-card-back .tc-back-avatar {
+                    width: 80px; height: 80px; border-radius: 50%;
+                    border: 3px solid rgba(255,255,255,.5);
+                    object-fit: cover; margin-bottom: 1.1rem;
+                    box-shadow: 0 4px 16px rgba(0,0,0,.25);
+                }
+                .team-card-back .tc-back-name {
+                    font-family: 'DM Serif Display', serif;
+                    font-size: 1.2rem; margin-bottom: .3rem;
+                }
+                .team-card-back .tc-back-bio {
+                    font-size: .88rem; line-height: 1.65;
+                    color: rgba(255,255,255,.85);
+                    margin-bottom: 1.2rem;
+                }
+                .team-card-back .tc-social {
+                    display: flex; gap: .7rem; justify-content: center;
+                }
+                .team-card-back .tc-social a {
+                    width: 38px; height: 38px; border-radius: 50%;
+                    background: rgba(255,255,255,.18);
+                    display: flex; align-items: center; justify-content: center;
+                    color: #fff; font-size: 1rem;
+                    transition: background .25s;
+                    text-decoration: none;
+                }
+                .team-card-back .tc-social a:hover {
+                    background: rgba(255,255,255,.35);
+                }
+            </style>
+
+            <div class="row g-4 justify-content-center">
+
+                <!-- Sarah Johnson -->
+                <div class="col-md-4">
+                    <div class="team-card-scene">
+                        <div class="team-card-flip accent-teal">
+                            <div class="team-card-front">
+                                <div class="team-img-wrap">
+                                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson">
+                                </div>
+                                <div class="tc-body">
+                                    <div class="tc-name">Sarah Johnson</div>
+                                    <span class="tc-role tc-role-teal">CEO & Founder</span>
+                                    <div class="tc-hint"><i class="bi bi-arrow-repeat"></i> Hover to learn more</div>
+                                </div>
+                            </div>
+                            <div class="team-card-back">
+                                <img src="https://randomuser.me/api/portraits/women/43.jpg" class="tc-back-avatar" alt="Sarah Johnson">
+                                <div class="tc-back-name">Sarah Johnson</div>
+                                <p class="tc-back-bio">Visionary leader with 10+ years in health-tech. Sarah founded SympTrack to bridge the gap between patients and better health outcomes.</p>
+                                <div class="tc-social">
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
                         </div>
-                        <p class="small">Full-stack developer with a passion for creating seamless user experiences.</p>
                     </div>
                 </div>
-                 <div class="col-md-4">
-                    <div class="feature-card text-center">
-                         <img src="https://randomuser.me/api/portraits/men/32.jpg" class="img-fluid team-img" alt="Team Member">
-                        <h4 style="color: #224abe;">Michael Chen</h4>
-                        <p style="color: #224abe;">Lead Developer</p>
-                        <div class="team-social">
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
-                                <a href="#"><i class="bi bi-twitter"></i></a>
-                                <a href="#"><i class="bi bi-envelope"></i></a>
+
+                <!-- Michael Chen -->
+                <div class="col-md-4">
+                    <div class="team-card-scene">
+                        <div class="team-card-flip accent-ink">
+                            <div class="team-card-front">
+                                <div class="team-img-wrap">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+                                </div>
+                                <div class="tc-body">
+                                    <div class="tc-name">Michael Chen</div>
+                                    <span class="tc-role tc-role-ink">Lead Developer</span>
+                                    <div class="tc-hint"><i class="bi bi-arrow-repeat"></i> Hover to learn more</div>
+                                </div>
+                            </div>
+                            <div class="team-card-back">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="tc-back-avatar" alt="Michael Chen">
+                                <div class="tc-back-name">Michael Chen</div>
+                                <p class="tc-back-bio">Full-stack architect passionate about clean code and performance. Michael leads all technical decisions and infrastructure at SympTrack.</p>
+                                <div class="tc-social">
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-github"></i></a>
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
                         </div>
-                        <p class="small">Full-stack developer with a passion for creating seamless user experiences.</p>
                     </div>
                 </div>
-                 <div class="col-md-4">
-                    <div class="feature-card text-center">
-                         <img src="https://randomuser.me/api/portraits/women/28.jpg" class="img-fluid team-img" alt="Team Member">
-                        <h4 style="color: #224abe;">Emily Davis</h4>
-                        <p style="color: #224abe;">UI/UX Designer</p>
-                        <div class="team-social">
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
-                                <a href="#"><i class="bi bi-twitter"></i></a>
-                                <a href="#"><i class="bi bi-envelope"></i></a>
+
+                <!-- Emily Davis -->
+                <div class="col-md-4">
+                    <div class="team-card-scene">
+                        <div class="team-card-flip accent-gold">
+                            <div class="team-card-front">
+                                <div class="team-img-wrap">
+                                    <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Emily Davis">
+                                </div>
+                                <div class="tc-body">
+                                    <div class="tc-name">Emily Davis</div>
+                                    <span class="tc-role tc-role-gold">UI/UX Designer</span>
+                                    <div class="tc-hint"><i class="bi bi-arrow-repeat"></i> Hover to learn more</div>
+                                </div>
+                            </div>
+                            <div class="team-card-back">
+                                <img src="https://randomuser.me/api/portraits/women/28.jpg" class="tc-back-avatar" alt="Emily Davis">
+                                <div class="tc-back-name">Emily Davis</div>
+                                <p class="tc-back-bio">Award-winning designer who believes great health tools start with great design. Emily crafts every pixel of the SympTrack experience.</p>
+                                <div class="tc-social">
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-dribbble"></i></a>
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
                         </div>
-                        <p class="small">Full-stack developer with a passion for creating seamless user experiences.</p>
                     </div>
                 </div>
-                 <!--div class="col-md-4">
-                    <div class="feature-card text-center">
-                         <img src="https://randomuser.me/api/portraits/men/75.jpg" class="img-fluid team-img" alt="Team Member">
-                        <h4 style="color: #224abe;">David Kim</h4>
-                        <p style="color: #224abe;">Support Lead</p>
-                        <div class="team-social">
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
-                                <a href="#"><i class="bi bi-twitter"></i></a>
-                                <a href="#"><i class="bi bi-envelope"></i></a>
-                        </div>
-                        <p class="small">Full-stack developer with a passion for creating seamless user experiences.</p>
-                    </div>
-                </div-->
+
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-5" style="background: linear-gradient(135deg, rgba(137, 56, 159, 0.9), rgba(240, 248, 255, 0.9));">
+    <section class="py-5" style="background: linear-gradient(135deg, var(--teal-dark) 0%, var(--ink) 100%);">
         <div class="container text-center py-4">
-            <h2 class="mb-4" style="color: black;">Ready to Take Control of Your Health?</h2>
-            <p class="lead mb-4">Join thousands of users who are already tracking their symptoms with SympTrack.</p>
-            <a href="register.html" class="btn btn-outline-primary btn-lg me-3">Get Started</a>
-            <a href="contact.html" class="btn btn-outline-primary btn-lg">Contact Us</a>
+            <h2 class="mb-4" style="color:#fff;">Ready to Take Control of Your Health?</h2>
+            <p class="lead mb-4" style="color:rgba(255,255,255,.8);">Join thousands of users who are already tracking their symptoms with SympTrack.</p>
+            <a href="register.html" class="btn btn-lg me-3" style="background:var(--gold);color:#fff;border:none;border-radius:50px;padding:.75rem 2rem;font-weight:700;">Get Started</a>
+            <a href="contact.html" class="btn btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);border-radius:50px;padding:.75rem 2rem;font-weight:700;">Contact Us</a>
         </div>
     </section>    
     

@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Models\MedicalCondition;
+use App\Models\MentalHealthCondition;
 
 class RegisterController extends Controller
 {
@@ -40,6 +42,14 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+{
+    return view('auth.register', [
+        'medicalConditions' => MedicalCondition::all(),
+        'mentalHealthConditions' => MentalHealthCondition::all(),
+    ]);
+}
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -55,6 +65,14 @@ class RegisterController extends Controller
             'phonenumber' => ['required', 'string'],
             'gender' => ['required', 'string'],
             'address'=> ['required', 'string'],
+            'medical_conditions' => ['nullable', 'array'],
+            'medical_conditions.*' => ['exists:medical_conditions,id'],
+            'custom_medical_conditions' => ['nullable', 'array'],
+            'custom_medical_conditions.*' => ['string', 'max:100'],
+            'mental_health_conditions' => ['nullable', 'array'],
+            'mental_health_conditions.*' => ['exists:mental_health_conditions,id'],
+            'custom_mental_health_conditions' => ['nullable', 'array'],
+            'custom_mental_health_conditions.*' => ['string', 'max:100'],
         ]);
     }
 
@@ -64,15 +82,32 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'phonenumber' => $data['phonenumber'],
-            'gender' => $data['gender'], 
-            'address'=> $data['address'],
-        ]);
+   protected function create(array $data)
+{
+    $user = User::create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+        'phonenumber' => $data['phonenumber'],
+        'gender' => $data['gender'],
+        'address' => $data['address'],
+    ]);
+
+    $medicalIds = $data['medical_conditions'] ?? [];
+    foreach ($data['custom_medical_conditions'] ?? [] as $name) {
+        $medicalIds[] = MedicalCondition::firstOrCreate(['name' => $name])->id;
     }
+
+    $mentalIds = $data['mental_health_conditions'] ?? [];
+    foreach ($data['custom_mental_health_conditions'] ?? [] as $name) {
+        $mentalIds[] = MentalHealthCondition::firstOrCreate(['name' => $name])->id;
+    }
+
+    $user->medicalConditions()->sync($medicalIds);
+    $user->mentalHealthConditions()->sync($mentalIds);
+
+    return $user;
+}
+
+    
 }

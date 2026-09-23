@@ -29,6 +29,9 @@ class FrontendController extends Controller
     public function dashboard(){
         return view('dashboard');
     }
+    public function test(){
+        return view('layouts.test');
+    }
     public function about(){
         return view('pages.about');
     }

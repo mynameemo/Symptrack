@@ -1,0 +1,11 @@
+<?php
+
+namespace App\Filament\Resources\Triggers\Pages;
+
+use App\Filament\Resources\Triggers\TriggerResource;
+use Filament\Resources\Pages\CreateRecord;
+
+class CreateTrigger extends CreateRecord
+{
+    protected static string $resource = TriggerResource::class;
+}

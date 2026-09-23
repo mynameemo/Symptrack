@@ -3,6 +3,7 @@
 use App\Models\About;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\InsightController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,17 +17,22 @@ use App\Http\Controllers\FrontendController;
 
 // FRONTEND PAGES
 Route::get('/', [FrontendController::class, 'welcome']) -> name('welcome');
-Route::get('/dashboard', [FrontendController::class, 'dashboard']) -> name('dashboard');
-Route::get('/home', [FrontendController::class, 'home']) -> name('home');
 Route::get('/about', [FrontendController::class, 'about']) -> name('about');
 Route::get('/contact', [FrontendController::class, 'contact']) -> name('contact');
 Route::get('/FAQs', [FrontendController::class, 'FAQs']) -> name('FAQs');
 Route::get('/add_symptom', [FrontendController::class, 'add_symptom']) -> name('add_symptom');
 Route::get('/personalInfo', [FrontendController::class, 'personalInfo']) -> name('personalInfo');
 Route::get('/symptom_history', [FrontendController::class, 'symptom_history']) -> name('symptom_history');
+Route::get('/test', [FrontendController::class, 'test']) -> name('test');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
+Route::get('/home', function () {
+    return redirect('/dashboard');
+}); 
+
+Route::get('/dashboard', [FrontendController::class, 'dashboard'])
+    ->middleware('auth')
+    ->name('dashboard');
 
 //PROFILE
 Route::get('/myProfile', [App\Http\Controllers\FrontendController::class, 'myProfile'])->name('myProfile');
@@ -52,3 +58,19 @@ Route::get('/HomePage', [App\Http\Controllers\FrontendController::class, 'HomePa
 
 //SYMPTOMS
 Route::get('/symptoms', [App\Http\Controllers\SymptomController::class, 'symptoms'])->name('symptoms');
+
+Route::post('/user-data', [App\Http\Controllers\SymptomController::class, 'storeUserData'])
+    ->middleware('auth')
+    ->name('user-data.store');
+
+Route::get('/user-data', [App\Http\Controllers\SymptomController::class, 'indexUserData'])
+    ->middleware('auth')
+    ->name('user-data.index');
+ 
+Route::delete('/user-data/{userData}', [App\Http\Controllers\SymptomController::class, 'destroyUserData'])
+    ->middleware('auth')
+    ->name('user-data.destroy');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/insights', [InsightController::class, 'getInsight']);
+});    
