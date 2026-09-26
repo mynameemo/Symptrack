@@ -1101,6 +1101,317 @@
         .hiw2-content { opacity: 1; transform: none; }
     }
     
+
+    .feature-card-1 {
+    position: relative;
+    height: 100%;
+    padding: 2.4rem 2rem;
+    border-radius: 22px;
+
+    /* Glass look */
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.85),
+        rgba(255, 255, 255, 0.65)
+    );
+    backdrop-filter: blur(14px);
+
+    /* Depth */
+    box-shadow:
+        0 25px 45px rgba(0, 0, 0, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    text-align: center;
+    overflow: hidden;
+
+    transition: 
+        transform 0.6s cubic-bezier(.175,.885,.32,1.275),
+        box-shadow 0.6s ease;
+    }
+
+    /*  GLOW RING */
+    .feature-card-1::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        background: linear-gradient(
+            135deg,
+            #4e73df,
+            #1cc88a,
+            #9d2fec
+        );
+        opacity: 0.35;
+        filter: blur(14px);
+        z-index: -1;
+    }
+
+    /*  LIGHT SWEEP */
+    .feature-card-1::after {
+        content: "";
+        position: absolute;
+        top: -60%;
+        left: -60%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+            circle,
+            rgba(255,255,255,0.35),
+            transparent 60%
+        );
+        transform: rotate(25deg);
+        opacity: 0;
+        transition: opacity 0.6s ease;
+    }
+
+    /* HOVER INTERACTION */
+    .feature-card-1:hover {
+        transform: translateY(-52px) scale(1.04);
+        box-shadow:
+            0 40px 80px rgba(0,0,0,0.18),
+            0 0 60px rgba(78,115,223,0.35);
+    }
+
+    .feature-card-1:hover::after {
+        opacity: 1;
+    }
+
+    /*  CONTENT FEEL */
+    .feature-card-1 h2 {
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+        color: #000000;
+    }
+
+    .feature-card-1 p {
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+
+    .feature-card-1:nth-child(1) { transform: rotate(-4deg); }
+    .feature-card-1:nth-child(2) { transform: rotate(1deg); }
+    .feature-card-1:nth-child(3) { transform: rotate(-1deg); }
+
+    .feature-card-1:hover {
+        transform: translateY(-52px) scale(1.11) rotate(3deg);
+    }
+
+    .feature-card-2 {
+    position: relative;
+    height: 100%;
+    padding: 2.4rem 2rem;
+    border-radius: 22px;
+
+    /* Glass look */
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.85),
+        rgba(255, 255, 255, 0.65)
+    );
+    backdrop-filter: blur(14px);
+
+    /* Depth */
+    box-shadow:
+        0 25px 45px rgba(0, 0, 0, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    text-align: center;
+    overflow: hidden;
+
+    transition: 
+        transform 0.6s cubic-bezier(.175,.885,.32,1.275),
+        box-shadow 0.6s ease;
+    }
+
+    /*  GLOW RING */
+    .feature-card-2::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        background: linear-gradient(
+            135deg,
+            #1cc88a,
+            #4e73df,
+            #9d2fec
+        );
+        opacity: 0.35;
+        filter: blur(14px);
+        z-index: -1;
+    }
+
+    /* LIGHT SWEEP */
+    .feature-card-2::after {
+        content: "";
+        position: absolute;
+        top: -60%;
+        left: -60%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+            circle,
+            rgba(255,255,255,0.35),
+            transparent 60%
+        );
+        transform: rotate(25deg);
+        opacity: 0;
+        transition: opacity 0.6s ease;
+    }
+
+    /*  HOVER INTERACTION */
+    .feature-card-2:hover {
+        transform: translateY(-52px) scale(1.04);
+        box-shadow:
+            0 40px 80px rgba(0,0,0,0.18),
+            0 0 60px rgba(78,115,223,0.35);
+    }
+
+    .feature-card-2:hover::after {
+        opacity: 1;
+    }
+
+    /*  CONTENT FEEL */
+    .feature-card-2 h4 {
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+    }
+
+    .feature-card-2 p {
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+
+    .feature-card-2:nth-child(1) { transform: rotate(-2deg); }
+    .feature-card-2:nth-child(2) { transform: rotate(1deg); }
+    .feature-card-2:nth-child(3) { transform: rotate(-1deg); }
+
+    .feature-card-2:hover {
+        transform: translateY(-52px) scale(1.11) rotate(3deg);
+    }
+
+
+    .feature-card-3 {
+        position: relative;
+        height: 100%;
+        padding: 2.4rem 2rem;
+        border-radius: 22px;
+        color: black;
+
+        /* Glass look */
+        background: linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.85),
+            rgba(255, 255, 255, 0.65)
+        );
+        backdrop-filter: blur(14px);
+
+        /* Depth */
+        box-shadow:
+            0 25px 45px rgba(0, 0, 0, 0.08),
+            inset 0 1px 1px rgba(255, 255, 255, 0.6);
+
+        border: 1px solid rgba(255, 255, 255, 0.35);
+
+        text-align: center;
+        overflow: hidden;
+
+        transition: 
+            transform 0.6s cubic-bezier(.175,.885,.32,1.275),
+            box-shadow 0.6s ease;
+    }
+
+    /*  GLOW RING */
+    .feature-card-3::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(
+        135deg,
+        #9d2fec,
+        #4e73df,
+        #1cc88a
+        
+    );
+    opacity: 0.35;
+    filter: blur(14px);
+    z-index: -1;
+    }
+
+    /* LIGHT SWEEP */
+    .feature-card-3::after {
+        content: "";
+        position: absolute;
+        top: -60%;
+        left: -60%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+            circle,
+            rgba(255,255,255,0.35),
+            transparent 60%
+        );
+        transform: rotate(25deg);
+        opacity: 0;
+        transition: opacity 0.6s ease;
+    }
+
+    /*  HOVER INTERACTION */
+    .feature-card-3:hover {
+        transform: translateY(-52px) scale(1.04);
+        box-shadow:
+            0 40px 80px rgba(0,0,0,0.18),
+            0 0 60px rgba(78,115,223,0.35);
+    }
+
+    .feature-card-3:hover::after {
+        opacity: 1;
+    }
+
+    /* CONTENT FEEL */
+    .feature-card-3 h4 {
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+    }
+
+    .feature-card-3 p {
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+
+    .feature-card-3:nth-child(1) { transform: rotate(4deg); }
+    .feature-card-3:nth-child(2) { transform: rotate(1deg); }
+    .feature-card-3:nth-child(3) { transform: rotate(-1deg); }
+
+    .feature-card-3:hover {
+        transform: translateY(-52px) scale(1.11) rotate(3deg);
+    }
+
+.page-header-band {
+    background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
+    padding: 3.5rem 2rem;
+    text-align: center;
+}
+.page-header-band h1 {
+    color: #fff;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin-bottom: .6rem;
+}
+.page-header-band p {
+    color: rgba(255,255,255,.85);
+    font-size: 1.02rem;
+    max-width: 520px;
+    margin: 0 auto;
+}
+ 
+@media (max-width: 767.98px) {
+    .page-header-band { padding: 2.75rem 1.5rem; }
+}
+
     </style>
 </head>
 <body>
@@ -1325,7 +1636,7 @@ document.addEventListener('DOMContentLoaded', function () {
         wrapper.appendChild(aboutImg);
         wrapper.insertAdjacentHTML('beforeend',
             '<div class="img-badge"><div class="badge-icon"><i class="bi bi-heart-pulse"></i></div>' +
-            '<div class="badge-text"><strong>Health First</strong><span>Since 2024</span></div></div>');
+            '<div class="badge-text"><strong>Health First</strong><span>Since 2025</span></div></div>');
     }
     const missionImg = document.querySelector('img[alt="Mission"]');
     if (missionImg && !missionImg.closest('.mission-img-wrapper')) {
@@ -1333,7 +1644,7 @@ document.addEventListener('DOMContentLoaded', function () {
         wrapper.className = 'mission-img-wrapper';
         missionImg.parentNode.insertBefore(wrapper, missionImg);
         wrapper.appendChild(missionImg);
-        wrapper.insertAdjacentHTML('beforeend', '<div class="mission-floating-tag">Our Purpose</div>');
+        wrapper.insertAdjacentHTML('beforeend', '<div class="mission-floating-tag"></div>');
     }
 
     /* ─── 8. Contact icons grid ─── */

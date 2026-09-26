@@ -8,18 +8,14 @@
     <div class="floating floating-2"></div>
 
     <!-- Hero Section -->
-    <section class="hero-below-nav">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mx-auto text-center">
-                    <div class="hero-content text-white">
-                        <h1 class="display-4 fw-bold mb-3">Contact Us</h1>
-                        <p class="lead mb-0">We'd love to hear from you. Get in touch with our team.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="page-header-band">
+    <div class="container">
+        <span class="hero-badge"><i class="bi bi-heart-pulse me-1"></i> About Us</span>
+        <h1>About SympTrack</h1>
+        <p>Your trusted partner in health monitoring and symptom tracking</p>
+    </div>
+</section>
+ 
 
     <!-- Contact Section — matches welcome page layout exactly, but form always visible and larger -->
     <style>
@@ -71,6 +67,57 @@
             box-shadow: 0 6px 20px rgba(13,115,119,.3);
         }
         .cpg-submit:hover { opacity: .9; transform: translateY(-2px); }
+
+        /* CTA strip */
+        .faq-cta {
+            background: linear-gradient(135deg, var(--teal-dark), var(--ink));
+            border-radius: 22px; 
+            padding: 3rem 2rem; 
+            text-align: center;
+            margin-top: 3rem; 
+            color: #fff;
+            width: 1000px;
+            margin-left: 250px;
+            margin-bottom: 50px;
+            
+        }
+        .faq-cta h3 { font-family: 'DM Serif Display', serif; margin-bottom: .6rem; }
+        .faq-cta p  { color: rgba(255,255,255,.8); margin-bottom: 1.5rem; }
+        .faq-cta .btn-cta {
+            background: var(--gold); 
+            color: #fff; 
+            border: none;
+            padding: .75rem 2rem; 
+            border-radius: 50px;
+            font-weight: 700; 
+            font-size: .95rem; 
+            text-decoration: none;
+            transition: opacity .2s, transform .2s; 
+            display: inline-block;
+        }
+        .faq-cta .btn-cta:hover { opacity: .9; transform: translateY(-2px); 
+    }
+
+    .page-header-band {
+    background: rgba(255,255,255,.85);
+    padding: 3.5rem 2rem;
+    text-align: center;
+}
+.page-header-band h1 {
+    color: #fff;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin-bottom: .6rem;
+}
+.page-header-band p {
+    color: rgba(255,255,255,.85);
+    font-size: 1.02rem;
+    max-width: 520px;
+    margin: 0 auto;
+}
+ 
+@media (max-width: 767.98px) {
+    .page-header-band { padding: 2.75rem 1.5rem; }
+}
     </style>
 
     <section class="contact-pg-section">
@@ -157,14 +204,12 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-5" style="background: linear-gradient(135deg, var(--teal-dark) 0%, var(--ink) 100%); margin-bottom: -78px;">
-        <div class="container text-center py-4">
-            <h2 class="mb-4" style="color:#fff;">Still Have Questions?</h2>
-            <p class="lead mb-4" style="color:rgba(255,255,255,.8);">Check out our <a style="color: var(--gold);" href="/FAQs">Frequently Asked Questions</a> or contact our support team for assistance.</p>
-            <a href="/FAQs" class="btn btn-lg" style="background:var(--gold);color:#fff;border:none;border-radius:50px;padding:.75rem 2rem;font-weight:700;">Visit FAQ Page</a>
-        </div>
-    </section>
+    <!-- CTA -->
+                    <div class="faq-cta">
+                        <h3>Still have questions?</h3>
+                        <p>Can't find the answer you're looking for? Our team is happy to help.</p>
+                        <a href="/contact" class="btn-cta"><i class="bi bi-chat-dots me-2"></i>Contact Support</a>
+                    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>

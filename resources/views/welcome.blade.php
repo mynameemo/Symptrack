@@ -582,7 +582,7 @@ h1, h2, h3, h4, h5, h6 {
         </style>
         <div class="container">
             <div class="text-center mb-5" >
-                <h2 class="section-title">What to expect from SympTrack</h2>
+                <h2 class="section-title" style:"color: black;">What to expect from SympTrack</h2>
                 <p class="lead" style="color: #2c3e50;">Everything you need to track your health in one place</p>
             </div>
 
