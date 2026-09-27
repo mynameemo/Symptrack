@@ -8,14 +8,15 @@
     <div class="floating floating-2"></div>
 
     <!-- Hero Section -->
-    <section class="page-header-band">
-    <div class="container">
-        <span class="hero-badge"><i class="bi bi-heart-pulse me-1"></i> About Us</span>
-        <h1>About SympTrack</h1>
-        <p>Your trusted partner in health monitoring and symptom tracking</p>
-    </div>
-</section>
- 
+        <!-- Hero Section -->
+        <section class="page-header-band page-header-band--ink">
+            <div class="container">
+                <span class="hero-badge"><i class="bi bi-chat-dots me-1"></i> Contact Us</span>
+                <h1>Get In Touch</h1>
+                <p>We'd love to hear from you — reach out through any channel below</p>
+            </div>
+        </section>
+        
 
     <!-- Contact Section — matches welcome page layout exactly, but form always visible and larger -->
     <style>
@@ -98,25 +99,8 @@
         .faq-cta .btn-cta:hover { opacity: .9; transform: translateY(-2px); 
     }
 
-    .page-header-band {
-    background: rgba(255,255,255,.85);
-    padding: 3.5rem 2rem;
-    text-align: center;
-}
-.page-header-band h1 {
-    color: #fff;
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    margin-bottom: .6rem;
-}
-.page-header-band p {
-    color: rgba(255,255,255,.85);
-    font-size: 1.02rem;
-    max-width: 520px;
-    margin: 0 auto;
-}
- 
-@media (max-width: 767.98px) {
-    .page-header-band { padding: 2.75rem 1.5rem; }
+    .page-header-band--ink {
+    background: linear-gradient(135deg, var(--ink) 0%, var(--teal-dark) 100%);
 }
     </style>
 

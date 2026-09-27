@@ -1611,21 +1611,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* ─── 6. Hero stats bar ─── */
-    const heroSection = document.querySelector('.hero-below-nav');
-    if (heroSection && !heroSection.querySelector('.hero-stats')) {
-        const heroBtns = heroSection.querySelector('.d-flex.flex-wrap.gap-3');
-        if (heroBtns) heroBtns.classList.add('btn-group-hero');
-        const statsBar = document.createElement('div');
-        statsBar.className = 'hero-stats';
-        statsBar.innerHTML =
-            '<div class="stat-item"><span class="stat-num">500+</span><span class="stat-label">Users</span></div>' +
-            '<div class="stat-divider"></div>' +
-            '<div class="stat-item"><span class="stat-num">10K+</span><span class="stat-label">Symptoms Logged</span></div>' +
-            '<div class="stat-divider"></div>' +
-            '<div class="stat-item"><span class="stat-num">98%</span><span class="stat-label">Satisfaction</span></div>';
-        if (heroBtns) heroBtns.after(statsBar);
-        else heroSection.appendChild(statsBar);
-    }
+   
 
     /* ─── 7. About / mission image wrappers ─── */
     const aboutImg = document.querySelector('img[alt="About Us"]');

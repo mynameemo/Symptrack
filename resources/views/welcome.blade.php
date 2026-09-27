@@ -432,193 +432,176 @@
 </section>
 
     <!-- What to expect -->
-    <section id="features" class="py-5 my-5" style="background-color: #c3f9dd;">
-        <style>
+<section id="features" class="py-5 my-5 wte-section">
+    <style>
+    .wte-section { background: var(--bg); }
+ 
     .feature-card {
-    /* Base look */
-    background: linear-gradient(
-        135deg,
-        rgba(78, 115, 223, 0.95),
-        rgba(28, 200, 138, 0.95),
-        rgba(148, 62, 246, 0.95)
-    );
-    backdrop-filter: blur(12px);
-    
-    border-radius: 16px 16px 0 0;
-    padding: 1.5rem;
-    text-align: center;
-    color: #ffffff;
-
-    /* Collapsed banner state */
-    height: 90px; /* increased so heading is visible */
-    overflow: hidden;
-    cursor: pointer;
-
-    position: relative;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
-    transition:
-        height 0.75s cubic-bezier(0.25, 1, 0.5, 1),
-        box-shadow 0.6s ease,
-        transform 0.6s ease;
-}
-
-/* Hide everything EXCEPT the heading */
-.feature-card > *:not(h4) {
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
-}
-
-/* Keep heading always visible */
-.feature-card h4 {
-    opacity: 1;
-    transform: translateY(10px);
-    margin: 0;
-    margin-top: -100px;
-}
-
-/* Top stitched ribbon */
-.feature-card::before {
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 12px;
-    right: 12px;
-    height: 5px;
-    background: linear-gradient(90deg, #ffffffaa, #ffffff55);
-    border-radius: 3px;
-}
-
-/* Wavy banner bottom */
-.feature-card::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    background: inherit;
-
-    clip-path: polygon(
-        0% 40%,
-        8% 55%,
-        16% 35%,
-        24% 55%,
-        32% 38%,
-        40% 60%,
-        48% 40%,
-        56% 60%,
-        64% 38%,
-        72% 55%,
-        80% 35%,
-        88% 55%,
-        100% 40%,
-        100% 100%,
-        0 100%
-    );
-
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
-    transition: transform 0.7s ease;
-}
-
-/* Hover: banner drops & reveals content */
-.feature-card:hover {
-    height: 300px;
-    transform: translateY(-6px);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-    animation: clothSway 2.5s ease-in-out infinite alternate;
-    h4{
-     margin-top: 20px;
-    } 
-   
-}
-
-/* Reveal all content on hover */
-.feature-card:hover > * {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Bottom cloth motion */
-.feature-card:hover::after {
-    animation: clothWave 2s ease-in-out infinite alternate;
-}
-
-/* Cloth sway animation */
-@keyframes clothSway {
-    0% { transform: rotateZ(-1.5deg); }
-    50% { transform: rotateZ(1.5deg); }
-    100% { transform: rotateZ(-1.5deg); }
-}
-
-/* Bottom wave animation */
-@keyframes clothWave {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
-    100% { transform: translateY(0); }
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    color: white;
-}
-
-.feature-icon {
-    width: 70px;
-    height: 70px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
-    font-size: 1.75rem;
-    color: white;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-}
-
-.text-center {
-    color: white;
-}
-        </style>
-        <div class="container">
-            <div class="text-center mb-5" >
-                <h2 class="section-title" style:"color: black;">What to expect from SympTrack</h2>
-                <p class="lead" style="color: #2c3e50;">Everything you need to track your health in one place</p>
+        /* Fallback only — every card below sets its own color via a
+           wte-teal / wte-gold / wte-ink class, so this rarely shows. */
+        background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+        backdrop-filter: blur(12px);
+ 
+        border-radius: 16px 16px 0 0;
+        padding: 1.5rem;
+        text-align: center;
+        color: #ffffff;
+ 
+        /* Collapsed banner state */
+        height: 90px;
+        overflow: hidden;
+        cursor: pointer;
+ 
+        position: relative;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+        transition:
+            height 0.75s cubic-bezier(0.25, 1, 0.5, 1),
+            box-shadow 0.6s ease,
+            transform 0.6s ease;
+    }
+ 
+    /* One accent per card — same triad as your contact icons / team cards */
+    .feature-card.wte-teal { background: linear-gradient(150deg, var(--teal-dark), var(--teal), var(--teal-light)); }
+    .feature-card.wte-gold { background: linear-gradient(150deg, #8a6020, var(--gold), #f3d489); }
+    .feature-card.wte-ink  { background: linear-gradient(150deg, #0e1220, var(--ink), #3a4266); }
+ 
+    /* Hide everything EXCEPT the heading — scoped to .feature-card, not h1–h6 globally */
+    .feature-card > *:not(h4) {
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+    }
+ 
+    /* Keep heading always visible — this white is fine, it's scoped to the card */
+    .feature-card h4 {
+        opacity: 1;
+        color: #ffffff;
+        transform: translateY(10px);
+        margin: 0;
+        margin-top: -100px;
+    }
+ 
+    .feature-card p { color: rgba(255,255,255,.88); }
+ 
+    /* Top stitched ribbon */
+    .feature-card::before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 12px;
+        right: 12px;
+        height: 5px;
+        background: linear-gradient(90deg, #ffffffaa, #ffffff55);
+        border-radius: 3px;
+    }
+ 
+    /* Wavy banner bottom */
+    .feature-card::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background: inherit;
+ 
+        clip-path: polygon(
+            0% 40%, 8% 55%, 16% 35%, 24% 55%, 32% 38%, 40% 60%,
+            48% 40%, 56% 60%, 64% 38%, 72% 55%, 80% 35%, 88% 55%,
+            100% 40%, 100% 100%, 0 100%
+        );
+ 
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+        transition: transform 0.7s ease;
+    }
+ 
+    /* Hover: banner drops & reveals content */
+    .feature-card:hover {
+        height: 300px;
+        transform: translateY(-6px);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+        animation: clothSway 2.5s ease-in-out infinite alternate;
+    }
+    .feature-card:hover h4 { margin-top: 20px; }
+ 
+    /* Reveal all content on hover */
+    .feature-card:hover > * {
+        opacity: 1;
+        transform: translateY(0);
+    }
+ 
+    /* Bottom cloth motion */
+    .feature-card:hover::after {
+        animation: clothWave 2s ease-in-out infinite alternate;
+    }
+ 
+    @keyframes clothSway {
+        0% { transform: rotateZ(-1.5deg); }
+        50% { transform: rotateZ(1.5deg); }
+        100% { transform: rotateZ(-1.5deg); }
+    }
+    @keyframes clothWave {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(6px); }
+        100% { transform: translateY(0); }
+    }
+ 
+    .feature-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 1.75rem;
+        color: white;
+    }
+    .wte-teal .feature-icon { background: linear-gradient(135deg, var(--teal), var(--teal-light)); }
+    .wte-gold .feature-icon { background: linear-gradient(135deg, var(--gold), #f3d489); }
+    .wte-ink  .feature-icon { background: linear-gradient(135deg, var(--ink), #3a4266); }
+    </style>
+ 
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">What to expect from SympTrack</h2>
+            <p class="lead" style="color: var(--muted);">Everything you need to track your health in one place</p>
+        </div>
+ 
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card wte-teal">
+                    <div class="feature-icon">
+                        <i class="bi bi-plus-circle"></i>
+                    </div>
+                    <h4 class="text-center mb-3">Easy Logging</h4>
+                    <p class="text-center">Quickly add symptoms with just a few taps. Rate severity and add notes in seconds.</p>
+                </div>
             </div>
-
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="feature-card" style="background-color: #05aa58;">
-                        <div class="feature-icon" style="background: linear-gradient(135deg, #a564e5, #0fafa2);">
-                            <i class="bi bi-plus-circle"></i>
-                        </div>
-                        <h4 class="text-center mb-3">Easy Logging</h4>
-                        <p class="text-center">Quickly add symptoms with just a few taps. Rate severity and add notes in seconds.</p>
+ 
+            <div class="col-md-4">
+                <div class="feature-card wte-gold">
+                    <div class="feature-icon">
+                        <i class="bi bi-graph-up"></i>
                     </div>
+                    <h4 class="text-center mb-3">Track Progress</h4>
+                    <p class="text-center">Visualize your health data with beautiful, easy-to-understand charts and graphs.</p>
                 </div>
-
-                <div class="col-md-4">
-                    <div class="feature-card" style="background-color: #0573aa;">
-                        <div class="feature-icon" style="background: linear-gradient(135deg, #f0b160, #6311aa);">
-                            <i class="bi bi-graph-up"></i>
-                        </div>
-                        <h4 class="text-center mb-3">Track Progress</h4>
-                        <p class="text-center">Visualize your health data with beautiful, easy-to-understand charts and graphs.</p>
+            </div>
+ 
+            <div class="col-md-4">
+                <div class="feature-card wte-ink">
+                    <div class="feature-icon">
+                        <i class="bi bi-bell"></i>
                     </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="feature-card" style="background-color: #72036b;">
-                        <div class="feature-icon" style="background: linear-gradient(135deg, #f6c23e, #dda20a);">
-                            <i class="bi bi-bell"></i>
-                        </div>
-                        <h4 class="text-center mb-3">Smart Reminders</h4>
-                        <p class="text-center">Never forget to track with customizable reminders that work for your schedule.</p>
-                    </div>
+                    <h4 class="text-center mb-3">Smart Reminders</h4>
+                    <p class="text-center">Never forget to track with customizable reminders that work for your schedule.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+ 
 
 
 <section class="py-5 welcome-contact-section" style="background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);">
