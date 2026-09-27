@@ -11,8 +11,7 @@
         <!-- Hero Section -->
         <section class="page-header-band page-header-band--ink">
             <div class="container">
-                <span class="hero-badge"><i class="bi bi-chat-dots me-1"></i> Contact Us</span>
-                <h1>Get In Touch</h1>
+                <h1>Contact Us</h1>
                 <p>We'd love to hear from you — reach out through any channel below</p>
             </div>
         </section>
